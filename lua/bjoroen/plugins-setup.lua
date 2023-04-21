@@ -107,6 +107,9 @@ return packer.startup(function(use)
 	-- Git stuff
 	use("lewis6991/gitsigns.nvim")
 
+	-- Floating Terminal
+	use("voldikss/vim-floaterm")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
