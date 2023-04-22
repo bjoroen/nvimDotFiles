@@ -29,6 +29,8 @@ cmp.setup({
 		end,
 	},
 	mapping = cmp.mapping.preset.insert({
+		["<s-Tab>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+		["<Tab>"] = cmp.mapping.select_next_item(), -- next suggestion
 		["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
 		["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -39,10 +41,10 @@ cmp.setup({
 	}),
 	-- sources for autocompletion
 	sources = cmp.config.sources({
-		{ name = "nvim_lsp" }, -- lsp
-		{ name = "luasnip" }, -- snippets
-		{ name = "buffer" }, -- text within current buffer
-		{ name = "path" }, -- file system paths
+		{ name = "nvim_lsp", priority = 1000 }, -- lsp
+		{ name = "luasnip", priority = 750 }, -- snippets
+		{ name = "buffer", priority = 500 }, -- text within current buffer
+		{ name = "path", priority = 250 }, -- file system paths
 	}),
 	-- configure lspkind for vs-code like icons
 	formatting = {
