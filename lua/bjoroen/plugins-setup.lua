@@ -113,6 +113,9 @@ return packer.startup(function(use)
 	-- Colorizer
 	use("norcalli/nvim-colorizer.lua")
 
+	-- Rust Tools
+	use("simrat39/rust-tools.nvim")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

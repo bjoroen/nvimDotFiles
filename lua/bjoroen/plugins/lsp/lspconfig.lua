@@ -16,6 +16,11 @@ if not typescript_setup then
 	return
 end
 
+local rust_tool_setup, rt = pcall(require, "rust-tools")
+if not rust_tool_setup then
+	return
+end
+
 local keymap = vim.keymap -- for conciseness
 
 -- enable keybinds only for when lsp server available
@@ -55,6 +60,14 @@ for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
+
+-- Rust
+rt.setup({
+	server = {
+		capabilities = capabilities,
+		on_attach = on_attach,
+	},
+})
 
 -- configure html server
 lspconfig["html"].setup({
