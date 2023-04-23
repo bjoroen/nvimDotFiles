@@ -27,6 +27,16 @@ if not rust_tool_setup then
 	return
 end
 
+local status, dap = pcall(require, "dap")
+if not status then
+	return
+end
+
+local status, dapui = pcall(require, "dapui")
+if not status then
+	return
+end
+
 local keymap = vim.keymap -- for conciseness
 
 local border = {
@@ -110,6 +120,18 @@ vim.diagnostic.config({
 		source = "always", -- Or "if_many"
 	},
 })
+
+dapui.setup()
+
+dap.listeners.after.event_initialized["dapui_config"] = function()
+	dapui.open()
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+	dapui.close()
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+	dapui.close()
+end
 
 -- Rust
 rt.setup({

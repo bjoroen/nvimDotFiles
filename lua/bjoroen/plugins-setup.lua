@@ -117,6 +117,7 @@ return packer.startup(function(use)
 	-- Rust Tools && Debugging
 	use("simrat39/rust-tools.nvim")
 	use("mfussenegger/nvim-dap")
+	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
 	-- Indent blankline
 	use("lukas-reineke/indent-blankline.nvim")

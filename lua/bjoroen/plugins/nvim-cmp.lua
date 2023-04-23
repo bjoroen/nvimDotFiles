@@ -85,15 +85,14 @@ cmp.setup({
 	-- sources for autocompletion
 	sources = cmp.config.sources({
 		{
-			name = "nvim_lsp", -- Only get varibales in fucntion call
+			name = "nvim_lsp",
 		}, -- lsp
-		-- { name = "luasnip" }, -- snippets
 		{ name = "buffer" }, -- text within current buffer
 		{ name = "path" }, -- file system paths
 	}),
 	-- configure lspkind for vs-code like icons
 	formatting = {
-		format = function(entry, vim_item)
+		format = function(_, vim_item)
 			-- Kind icons
 			vim_item.abbr = " " .. vim_item.abbr
 			vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) --Concatonate the icons with name of the item-kind

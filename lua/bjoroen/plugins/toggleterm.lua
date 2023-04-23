@@ -5,7 +5,7 @@ end
 
 toggleterm.setup({
 	size = 10,
-	open_mapping = [[<leader>tf]],
+	open_mapping = [[<c-t>]],
 	shading_factor = 2,
 	direction = "float",
 	float_opts = {
