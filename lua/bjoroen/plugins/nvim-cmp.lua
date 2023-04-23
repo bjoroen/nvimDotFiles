@@ -29,6 +29,34 @@ vim.opt.completeopt = "menu,menuone,noselect"
 local border_opts =
 	{ border = "single", winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Constant,Search:None" }
 
+local kind_icons = {
+	Class = "ﴯ",
+	Color = "",
+	Constant = "",
+	Constructor = "",
+	Enum = "",
+	EnumMember = "",
+	Event = "",
+	Field = "",
+	File = "",
+	Folder = "",
+	Function = "",
+	Interface = "",
+	Keyword = "",
+	Method = "",
+	Module = "",
+	Operator = "",
+	Property = "ﰠ",
+	Reference = "",
+	Snippet = "",
+	Struct = "",
+	Text = "",
+	TypeParameter = "",
+	Unit = "",
+	Value = "",
+	Variable = "",
+}
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -48,58 +76,32 @@ cmp.setup({
 	}),
 
 	window = {
-		completion = cmp.config.window.bordered(border_opts),
+		completion = cmp.config.window.bordered({
+			scrollbar = false,
+			winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Constant,Search:None",
+		}),
 		documentation = cmp.config.window.bordered(border_opts),
-		scrollbar = false,
 	},
 	-- sources for autocompletion
 	sources = cmp.config.sources({
 		{
-			name = "nvim_lsp",
-			priority = 1000,
-			entry_filter = function(entry, context)
-				local kind = entry:get_kind()
-				local node = ts_util.get_node_at_cursor():type()
-				local line = context.cursor_line
-				local col = context.cursor.col
-				local char_before_cursor = string.sub(line, col - 1, col - 1)
-
-				-- Better autocomplete after .
-				if char_before_cursor == "." then
-					if kind == 2 or kind == 5 then
-						return true
-					else
-						return false
-					end
-				elseif string.match(line, "^%s*%w*$") then
-					if kind == 3 or kind == 6 then
-						return true
-					else
-						return false
-					end
-				end
-
-				if node == "arguments" then
-					if kind == 6 then
-						return true
-					else
-						return false
-					end
-				end
-			end,
-
-			-- Only get varibales in fucntion call
+			name = "nvim_lsp", -- Only get varibales in fucntion call
 		}, -- lsp
-		-- { name = "luasnip", priority = 350 }, -- snippets
-		{ name = "buffer", priority = 500 }, -- text within current buffer
-		{ name = "path", priority = 250 }, -- file system paths
+		-- { name = "luasnip" }, -- snippets
+		{ name = "buffer" }, -- text within current buffer
+		{ name = "path" }, -- file system paths
 	}),
 	-- configure lspkind for vs-code like icons
 	formatting = {
-		fields = { "abbr", "kind", "menu" },
-		format = lspkind.cmp_format({
-			maxwidth = 50,
-			ellipsis_char = "...",
-		}),
+		format = function(entry, vim_item)
+			-- Kind icons
+			vim_item.abbr = " " .. vim_item.abbr
+			vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) --Concatonate the icons with name of the item-kind
+			return vim_item
+		end,
+	},
+
+	matching = {
+		disallow_fuzzy_matching = false,
 	},
 })

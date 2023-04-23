@@ -43,7 +43,7 @@ k.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help 
 
 -- ToggleTerm
 local t_opts = { silent = true }
-k.set("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>")
+-- k.set("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>")
 k.set("t", "<C-k>", "<C-\\><C-N><C-w>h", t_opts)
 
 -- Debugging
