@@ -12,7 +12,7 @@ end
 
 -- import telescope builtin
 local builtin_setup, builtin = pcall(require, "telescope.builtin")
-if not actions_setup then
+if not builtin_setup then
 	return
 end
 
@@ -32,6 +32,10 @@ telescope.setup({
 
 local k = vim.keymap
 
+k.set("n", "<leader>gi", function()
+	builtin.lsp_implementations()
+end)
+
 k.set("n", "<leader>gb", function()
 	builtin.git_branches()
 end) -- Git Branches
@@ -39,8 +43,11 @@ k.set("n", "<leader>gc", function()
 	builtin.git_commits()
 end) -- Git Commits
 
+-- Fuzzy find current buffer
 k.set("n", "<leader>/", function()
-	builtin.current_buffer_fuzzy_find()
+	local opt = require("telescope.themes").get_dropdown({ height = 10, previewer = false })
+	builtin.current_buffer_fuzzy_find(opt)
 end)
 
 telescope.load_extension("fzf")
+telescope.load_extension("ui-select")
