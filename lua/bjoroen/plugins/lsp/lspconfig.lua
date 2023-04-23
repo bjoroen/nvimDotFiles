@@ -45,18 +45,18 @@ local on_attach = function(client, bufnr)
 	-- keybind options
 	local opts = { noremap = true, silent = true, buffer = bufnr }
 
+	-- Border for flaoting windows
 	local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-	function vim.lsp.util.open_floating_preview(contents, syntax, opts2, ...)
-		opts2 = opts2 or {}
-		opts2.border = opts2.border or border
-		return orig_util_open_floating_preview(contents, syntax, opts2, ...)
+	function vim.lsp.util.open_floating_preview(contents, syntax, opt, ...)
+		opt = opt or {}
+		opt.border = opt.border or border
+		return orig_util_open_floating_preview(contents, syntax, opt, ...)
 	end
 
 	-- set keybinds
 	keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
 	keymap.set("n", "gd", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- got to declaration
 	keymap.set("n", "gD", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
-	-- keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- go to implementation
 	keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts) -- see available code actions
 	keymap.set("n", "<leader>r", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
 	keymap.set("n", "<leader>ld", "<cmd>lua vim.diagnostic.open_float()<CR>", opts) -- show  diagnostics for line
@@ -75,7 +75,6 @@ local on_attach = function(client, bufnr)
 	end
 
 	if client.name == "rust_analzyer" then
-		print(client.name)
 		keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
 		-- Code action groups
 		keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
@@ -111,14 +110,6 @@ rt.setup({
 		on_attach = on_attach,
 		root_dir = util.root_pattern("Cargo.toml"),
 	},
-	-- debugging stuff
-	-- dap = {
-	-- 	adapter = {
-	-- 		type = "executable",
-	-- 		command = "lldb-vscode",
-	-- 		name = "rt_lldb",
-	-- 	},
-	-- },
 })
 
 rt.hover_range.hover_range()
