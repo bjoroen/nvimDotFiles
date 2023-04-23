@@ -45,3 +45,11 @@ k.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help 
 local t_opts = { silent = true }
 k.set("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>")
 k.set("t", "<C-k>", "<C-\\><C-N><C-w>h", t_opts)
+
+-- Debugging
+k.set("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>")
+k.set("n", "<leader>dus", function()
+	local widgets = require("dap.ui.widgets")
+	local sidebar = widgets.sidebar(widgets.scopes)
+	sidebar.open()
+end)

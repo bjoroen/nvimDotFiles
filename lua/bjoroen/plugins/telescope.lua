@@ -39,4 +39,8 @@ k.set("n", "<leader>gc", function()
 	builtin.git_commits()
 end) -- Git Commits
 
+k.set("n", "<leader>/", function()
+	builtin.current_buffer_fuzzy_find()
+end)
+
 telescope.load_extension("fzf")

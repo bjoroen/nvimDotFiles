@@ -113,8 +113,12 @@ return packer.startup(function(use)
 	-- Colorizer
 	use("norcalli/nvim-colorizer.lua")
 
-	-- Rust Tools
+	-- Rust Tools && Debugging
 	use("simrat39/rust-tools.nvim")
+	use("mfussenegger/nvim-dap")
+
+	-- Indent blankline
+	use("lukas-reineke/indent-blankline.nvim")
 
 	if packer_bootstrap then
 		require("packer").sync()
