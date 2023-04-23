@@ -92,6 +92,15 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
+local format_sync_grp = vim.api.nvim_create_augroup("Format", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*.rs",
+	callback = function()
+		vim.lsp.buf.format({ timeout_ms = 200 })
+	end,
+	group = format_sync_grp,
+})
+
 vim.diagnostic.config({
 	virtual_text = {
 		-- source = "always", -- Or "if_many"
@@ -109,6 +118,13 @@ rt.setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
 		root_dir = util.root_pattern("Cargo.toml"),
+		["rust-analyzer"] = {
+
+			-- enable clippy on save
+			checkOnSave = {
+				command = "clippy",
+			},
+		},
 	},
 })
 
