@@ -48,9 +48,5 @@ k.set("t", "<C-k>", "<C-\\><C-N><C-w>h", t_opts)
 
 -- Debugging
 k.set("n", "<leader>db", "<cmd>DapToggleBreakpoint <CR>")
-k.set("n", "<leader>dus", function()
-	local widgets = require("dap.ui.widgets")
-	local sidebar = widgets.sidebar(widgets.scopes)
-	sidebar.open()
-end)
 k.set("n", "<leader>dso", "<cmd>DapStepOver <CR>")
+k.set("n", "<leader>dsi", "<cmd>DapStepInto <CR>")
