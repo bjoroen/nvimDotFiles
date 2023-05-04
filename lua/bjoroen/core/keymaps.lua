@@ -24,6 +24,9 @@ k.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 k.set("n", "<leader>w", "<cmd>w<cr>") -- Save file
 k.set("n", "<leader>q", "<cmd>q<cr>") -- Quite buffer
 
+-- No highlight
+k.set("n", "<leader>h", "<cmd>noh<cr>")
+
 ----------------------
 -- Plugin Keybind
 ----------------------
@@ -32,7 +35,7 @@ k.set("n", "<leader>q", "<cmd>q<cr>") -- Quite buffer
 k.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
 
 -- Nvim-tree
-k.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
+k.set("n", "<leader>e", ":NvimTreeFindFileToggle<CR>") -- toggle file explorer
 
 -- Telescope
 k.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
