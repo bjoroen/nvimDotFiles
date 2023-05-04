@@ -151,6 +151,12 @@ rt.setup({
 
 rt.hover_range.hover_range()
 
+-- Kotlin
+lspconfig.kotlin_language_server.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 -- configure html server
 lspconfig["html"].setup({
 	capabilities = capabilities,
