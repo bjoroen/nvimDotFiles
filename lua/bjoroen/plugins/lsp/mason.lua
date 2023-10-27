@@ -27,6 +27,7 @@ mason_lspconfig.setup({
 		"cssls",
 		"lua_ls",
 		"emmet_ls",
+		"gopls",
 	},
 	-- auto-install configured servers (with lspconfig)
 	automatic_installation = true, -- not the same as ensure_installed

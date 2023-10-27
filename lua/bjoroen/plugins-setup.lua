@@ -122,6 +122,17 @@ return packer.startup(function(use)
 	-- Indent blankline
 	use("lukas-reineke/indent-blankline.nvim")
 
+	-- use({
+	-- 	"olexsmir/gopher.nvim",
+	-- 	ft = "go",
+	-- 	config = function(_, opts)
+	-- 		require("gopher").setup(opts)
+	-- 	end,
+	-- 	build = function()
+	-- 		vim.cmd([[silent! GoInstallDeps]])
+	-- 	end,
+	-- })
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
