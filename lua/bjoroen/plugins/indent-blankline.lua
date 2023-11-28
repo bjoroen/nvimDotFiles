@@ -1,10 +1,6 @@
-local setup, blankline = pcall(require, "indent_blankline")
+local setup, blankline = pcall(require, "ibl")
 if not setup then
 	return
 end
 
-blankline.setup({
-	show_current_context = true,
-	-- show_current_context_start = true,
-	use_treesitter = true,
-})
+blankline.setup()

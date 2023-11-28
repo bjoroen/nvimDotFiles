@@ -179,6 +179,12 @@ lspconfig.gopls.setup({
 	},
 })
 
+-- Zig
+lspconfig.zls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 -- Kotlin
 lspconfig.kotlin_language_server.setup({
 	capabilities = capabilities,

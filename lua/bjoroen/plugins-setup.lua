@@ -48,8 +48,8 @@ return packer.startup(function(use)
 	-- File Tree
 	use("nvim-tree/nvim-tree.lua")
 
-	-- vs-code like icons
-	use("nvim-tree/nvim-web-devicons")
+	-- -- vs-code like icons
+	-- use("nvim-tree/nvim-web-devicons")
 
 	-- Lualine
 	use({ "nvim-lualine/lualine.nvim" })

@@ -18,14 +18,14 @@ opt.ignorecase = true
 opt.smartcase = true
 
 -- cursor line
-opt.cursorline = ture
+opt.cursorline = false
 
 -- appearance
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
 
--- backspace 
+-- backspace
 opt.backspace = "indent,eol,start"
 
 -- clipboard
