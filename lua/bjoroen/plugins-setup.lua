@@ -33,6 +33,14 @@ return packer.startup(function(use)
 
 	-- Colorscheme
 	use({ "catppuccin/nvim", as = "catppuccin" }) -- colorscheme
+	use({ "cocopon/iceberg.vim", as = "iceberg" }) -- colorscheme
+	use({ "kvrohit/rasmus.nvim", as = "rasmus" })
+	use({
+		"jesseleite/nvim-noirbuddy",
+		requires = { "tjdevries/colorbuddy.nvim", branch = "dev" },
+	})
+
+	use({ "tjdevries/colorbuddy.nvim" })
 
 	-- Tmux & split window navigation
 	use("christoomey/vim-tmux-navigator")
@@ -46,7 +54,7 @@ return packer.startup(function(use)
 	use("numtostr/comment.nvim")
 
 	-- File Tree
-	use("nvim-tree/nvim-tree.lua")
+	-- use("nvim-tree/nvim-tree.lua")
 
 	-- -- vs-code like icons
 	-- use("nvim-tree/nvim-web-devicons")
@@ -100,6 +108,7 @@ return packer.startup(function(use)
 			ts_update()
 		end,
 	})
+	use({ "nvim-treesitter/playground" })
 
 	-- auto closing
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...

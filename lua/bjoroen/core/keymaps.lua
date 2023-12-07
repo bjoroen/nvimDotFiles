@@ -27,6 +27,9 @@ k.set("n", "<leader>q", "<cmd>q<cr>") -- Quite buffer
 -- No highlight
 k.set("n", "<leader>h", "<cmd>noh<cr>")
 
+-- File explorer
+k.set("n", "<leader>e", ":Rexplore<CR>") -- toggle file explorer
+
 ----------------------
 -- Plugin Keybind
 ----------------------
@@ -35,7 +38,6 @@ k.set("n", "<leader>h", "<cmd>noh<cr>")
 k.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
 
 -- Nvim-tree
-k.set("n", "<leader>e", ":NvimTreeFindFileToggle<CR>") -- toggle file explorer
 
 -- Telescope
 k.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore

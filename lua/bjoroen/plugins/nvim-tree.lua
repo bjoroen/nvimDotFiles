@@ -7,7 +7,7 @@ end
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
+-- vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
 
 local HEIGHT_RATIO = 0.8 -- You can change this
 local WIDTH_RATIO = 0.5 -- You can change this too
