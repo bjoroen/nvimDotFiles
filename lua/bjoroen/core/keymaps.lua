@@ -2,6 +2,19 @@ vim.g.mapleader = " "
 
 local k = vim.keymap
 
+vim.api.nvim_create_user_command("DiagnosticToggle", function()
+	local config = vim.diagnostic.config
+	local vt = config().virtual_text
+	config({
+		virtual_text = not vt,
+		-- underline = not vt,
+		signs = not vt,
+	})
+end, { desc = "toggle diagnostic" })
+
+-- Toggle error and warning
+k.set("n", "<leader>tt", ":DiagnosticToggle<CR>")
+
 -- general keymaps
 k.set("i", "jk", "<ESC>")
 k.set("i", "jj", "<ESC>")
