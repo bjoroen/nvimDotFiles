@@ -3,4 +3,4 @@ if not setup then
 	return
 end
 
-blankline.setup()
+blankline.setup({ scope = { show_start = false, show_end = false } })

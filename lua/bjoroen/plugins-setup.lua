@@ -34,6 +34,7 @@ return packer.startup(function(use)
 	-- Colorscheme
 	use({ "catppuccin/nvim", as = "catppuccin" }) -- colorscheme
 	use({ "cocopon/iceberg.vim", as = "iceberg" }) -- colorscheme
+	-- Using packer
 	use({ "kvrohit/rasmus.nvim", as = "rasmus" })
 	use({
 		"jesseleite/nvim-noirbuddy",
