@@ -10,7 +10,7 @@ local palette = {
 	darkgray = { gui = "#34373a", cterm = 095 },
 	dark = { gui = "#1c1c1c", cterm = 243 },
 	black = { gui = "#131515", cterm = 234 },
-	backgnd = { gui = "#1E1E2E", cterm = 233 },
+	backgnd = { gui = "#24273a", cterm = 233 },
 	backgnd_alt = { gui = "#FFFFFF", cterm = 233 },
 
 	darkgreen = { gui = "#a6e3a1", cterm = 065 }, -- darkgreen
