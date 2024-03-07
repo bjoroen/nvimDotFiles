@@ -34,7 +34,6 @@ return packer.startup(function(use)
 	-- Colorscheme
 	use({ "catppuccin/nvim", as = "catppuccin" }) -- colorscheme
 	use({ "cocopon/iceberg.vim", as = "iceberg" }) -- colorscheme
-	-- Using packer
 	use({ "kvrohit/rasmus.nvim", as = "rasmus" })
 	use({
 		"jesseleite/nvim-noirbuddy",
@@ -53,12 +52,6 @@ return packer.startup(function(use)
 
 	-- commenting with gc
 	use("numtostr/comment.nvim")
-
-	-- File Tree
-	-- use("nvim-tree/nvim-tree.lua")
-
-	-- -- vs-code like icons
-	-- use("nvim-tree/nvim-web-devicons")
 
 	-- Lualine
 	use({ "nvim-lualine/lualine.nvim" })
@@ -86,14 +79,6 @@ return packer.startup(function(use)
 	-- config lsp servers
 	use("neovim/nvim-lspconfig") -- easily configure language servers
 	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-	use({
-		"glepnir/lspsaga.nvim",
-		branch = "main",
-		requires = {
-			{ "nvim-tree/nvim-web-devicons" },
-			{ "nvim-treesitter/nvim-treesitter" },
-		},
-	}) -- enhanced lsp uis
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
@@ -132,16 +117,16 @@ return packer.startup(function(use)
 	-- Indent blankline
 	use("lukas-reineke/indent-blankline.nvim")
 
-	-- use({
-	-- 	"olexsmir/gopher.nvim",
-	-- 	ft = "go",
-	-- 	config = function(_, opts)
-	-- 		require("gopher").setup(opts)
-	-- 	end,
-	-- 	build = function()
-	-- 		vim.cmd([[silent! GoInstallDeps]])
-	-- 	end,
-	-- })
+	use({
+		"olexsmir/gopher.nvim",
+		ft = "go",
+		config = function(_, opts)
+			require("gopher").setup(opts)
+		end,
+		build = function()
+			vim.cmd([[silent! GoInstallDeps]])
+		end,
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()

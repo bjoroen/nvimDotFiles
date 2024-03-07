@@ -32,8 +32,8 @@ if not status then
 	return
 end
 
-local status, dapui = pcall(require, "dapui")
-if not status then
+local statusDapui, dapui = pcall(require, "dapui")
+if not statusDapui then
 	return
 end
 
@@ -163,25 +163,30 @@ rt.setup({
 
 rt.hover_range.hover_range()
 
--- Go
--- lspconfig.gopls.setup({
--- 	capabilities = capabilities,
--- 	on_attach = on_attach,
--- 	cmd = { "gopls" },
--- 	filetypes = { "go", "gomod", "gowork", "gotmpl" },
--- 	root_dir = util.root_pattern("go.work", "go.mod", ".git"),
--- 	settings = {
--- 		gopls = {
--- 			completeUnimported = true,
--- 			analyses = {
--- 				unuseparams = true,
--- 			},
--- 		},
--- 	},
--- })
+--Go
+lspconfig.gopls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	cmd = { "gopls" },
+	filetypes = { "go", "gomod", "gowork", "gotmpl" },
+	root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+	settings = {
+		gopls = {
+			completeUnimported = true,
+			analyses = {
+				unuseparams = true,
+			},
+		},
+	},
+})
 
 -- Zig
 lspconfig.zls.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+lspconfig.clangd.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
