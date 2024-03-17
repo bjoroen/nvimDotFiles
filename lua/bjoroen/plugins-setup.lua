@@ -31,14 +31,13 @@ return packer.startup(function(use)
 	-- lua functions that many plugins use
 	use("nvim-lua/plenary.nvim")
 
+	-- WakaTime
+	use("wakatime/vim-wakatime")
+
 	-- Colorscheme
 	use({ "catppuccin/nvim", as = "catppuccin" }) -- colorscheme
 	use({ "cocopon/iceberg.vim", as = "iceberg" }) -- colorscheme
 	use({ "kvrohit/rasmus.nvim", as = "rasmus" })
-	use({
-		"jesseleite/nvim-noirbuddy",
-		requires = { "tjdevries/colorbuddy.nvim", branch = "dev" },
-	})
 
 	use({ "tjdevries/colorbuddy.nvim" })
 
