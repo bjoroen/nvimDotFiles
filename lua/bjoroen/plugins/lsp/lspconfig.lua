@@ -145,6 +145,14 @@ lspconfig.ltex.setup({
 	},
 })
 
+lspconfig.eslint.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		packageManager = "npm",
+	},
+})
+
 -- Rust
 rt.setup({
 	server = {
