@@ -27,16 +27,6 @@ if not rust_tool_setup then
 	return
 end
 
-local status, dap = pcall(require, "dap")
-if not status then
-	return
-end
-
-local statusDapui, dapui = pcall(require, "dapui")
-if not statusDapui then
-	return
-end
-
 local keymap = vim.keymap -- for conciseness
 
 local border = {
@@ -67,9 +57,8 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show definition, references
 	keymap.set("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts) -- got to declaration
 	keymap.set("n", "gi", "<Cmd>lua vim.lsp.buf.implementation<CR>", opts) -- got to declaration
-	keymap.set("n", "gD", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
 	keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts) -- see available code actions
-	keymap.set("n", "<leader>r", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
+	keymap.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", opts) -- smart rename
 	keymap.set("n", "<leader>ld", "<cmd>lua vim.diagnostic.open_float()<CR>", opts) -- show  diagnostics for line
 	keymap.set("n", "<leader>d", "<cmd>Lspsaga show_cursor_diagnostics<CR>", opts) -- show diagnostics for cursor
 	keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
@@ -121,18 +110,6 @@ vim.diagnostic.config({
 		source = "always", -- Or "if_many"
 	},
 })
-
-dapui.setup()
-
-dap.listeners.after.event_initialized["dapui_config"] = function()
-	dapui.open()
-end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-	dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-	dapui.close()
-end
 
 -- Ltex
 lspconfig.ltex.setup({
@@ -200,10 +177,10 @@ lspconfig.clangd.setup({
 })
 
 -- Kotlin
-lspconfig.kotlin_language_server.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
+-- lspconfig.kotlin_language_server.setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- })
 
 -- configure html server
 lspconfig["html"].setup({
