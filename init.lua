@@ -1,4 +1,4 @@
-require("bjoroen.plugins-setup")
+require("bjoroen.lazy")
 require("bjoroen.core.options")
 require("bjoroen.core.keymaps")
 require("bjoroen.core.colorscheme")
