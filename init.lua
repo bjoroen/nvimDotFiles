@@ -9,7 +9,6 @@ require("bjoroen.plugins.telescope")
 require("bjoroen.plugins.nvim-cmp")
 
 require("bjoroen.plugins.lsp.mason")
-require("bjoroen.plugins.lsp.gopher")
 require("bjoroen.plugins.lsp.lspconfig")
 require("bjoroen.plugins.lsp.null-ls")
 
