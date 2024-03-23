@@ -18,4 +18,6 @@ require("bjoroen.plugins.gitsigns")
 require("bjoroen.plugins.colorizer")
 require("bjoroen.plugins.toggleterm")
 require("bjoroen.plugins.indent-blankline")
-require("bjoroen.plugins.nvim-stats")
+
+-- My plugins
+-- require("bjoroen.plugins.nvim-stats")

@@ -1,1 +1,1 @@
--- require("nvim-stats").setup()
+require("nvim-stats").setup()
