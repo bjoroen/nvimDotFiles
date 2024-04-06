@@ -4,12 +4,6 @@ if not status then
 end
 
 lualine.setup({
-	sections = {
-		lualine_a = {
-			{
-				"filename",
-				path = 1,
-			},
-		},
-	},
+	section_separators = "",
+	component_separators = "",
 })

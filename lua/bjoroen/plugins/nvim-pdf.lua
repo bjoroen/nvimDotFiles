@@ -1,0 +1,9 @@
+-- local M = {}
+--
+-- local command = {
+-- 	"edit",
+-- 	"term://glow ~/github/nerd-fonts/readme.md",
+-- }
+--
+-- vim.cmd(vim.fn.join(command, " "))
+-- return M

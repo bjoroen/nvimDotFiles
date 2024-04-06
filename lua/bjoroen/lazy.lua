@@ -24,6 +24,15 @@ local plugins = {
 		end,
 	},
 
+	{
+		"AlexvZyl/nordic.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("nordic").load()
+		end,
+	},
+
 	"wakatime/vim-wakatime",
 
 	{ "catppuccin/nvim", name = "catppuccin" }, -- colorscheme

@@ -20,7 +20,8 @@ k.set("i", "jk", "<ESC>")
 k.set("i", "jj", "<ESC>")
 k.set("i", "kk", "<ESC>")
 
-k.set("n", "<leader>h", ":nohl<CR>")
+-- Pasting
+k.set("n", "<leader>p", '"0p')
 
 -- window management
 k.set("n", "<leader>|", "<C-w>v") -- split window vertically
@@ -46,7 +47,6 @@ k.set("n", "<leader>e", ":Rexplore<CR>") -- toggle file explorer
 ----------------------
 -- Plugin Keybind
 ----------------------
-
 -- vim-maximizer
 k.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
 

@@ -4,7 +4,7 @@ require("bjoroen.core.keymaps")
 require("bjoroen.core.colorscheme")
 require("bjoroen.plugins.comment")
 require("bjoroen.plugins.nvim-tree")
-require("bjoroen.plugins.lualine")
+-- require("bjoroen.plugins.lualine")
 require("bjoroen.plugins.telescope")
 require("bjoroen.plugins.nvim-cmp")
 
@@ -20,4 +20,5 @@ require("bjoroen.plugins.toggleterm")
 require("bjoroen.plugins.indent-blankline")
 
 -- My plugins
--- require("bjoroen.plugins.nvim-stats")
+-- require("bjoroen.plugins.nvim-pdf")
+require("bjoroen.plugins.statusline")
