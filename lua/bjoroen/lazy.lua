@@ -41,7 +41,7 @@ local plugins = {
 
 	{ "kvrohit/rasmus.nvim", name = "rasmus" },
 
-	{ "tjdevries/colorbuddy.nvim" },
+	"tjdevries/colorbuddy.nvim",
 
 	"christoomey/vim-tmux-navigator",
 
@@ -53,13 +53,11 @@ local plugins = {
 
 	"numtostr/comment.nvim",
 
-	{ "nvim-lualine/lualine.nvim" },
-
 	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- dependency for better sorting performance
 
 	{ "nvim-telescope/telescope.nvim", branch = "0.1.x" }, -- fuzzy finder
 
-	{ "nvim-telescope/telescope-ui-select.nvim" },
+	"nvim-telescope/telescope-ui-select.nvim",
 
 	"hrsh7th/nvim-cmp", -- completion plugin
 
@@ -89,19 +87,15 @@ local plugins = {
 
 	"jayp0521/mason-null-ls.nvim", -- bridges gap b/w mason & null-ls
 
-	{
-		"nvim-treesitter/nvim-treesitter",
-	},
+	"nvim-treesitter/nvim-treesitter",
 
-	{ "nvim-treesitter/playground" },
+	"nvim-treesitter/playground",
 
 	"windwp/nvim-autopairs", -- autoclose parens, brackets, quotes, etc...
 
 	{ "windwp/nvim-ts-autotag", dependencies = "nvim-treesitter" }, -- autoclose tags
 
 	"lewis6991/gitsigns.nvim",
-
-	"akinsho/toggleterm.nvim",
 
 	"norcalli/nvim-colorizer.lua",
 
