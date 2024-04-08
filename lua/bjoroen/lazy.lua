@@ -17,7 +17,7 @@ local plugins = {
 	--TODO: Group plugins better
 	"nvim-lua/plenary.nvim",
 	{
-		dir = "~/github/nvim-stats", -- Your path
+		dir = "~/dev/nvim-stats", -- Your path
 		name = "nvim-stats",
 		config = function()
 			require("nvim-stats").setup()
