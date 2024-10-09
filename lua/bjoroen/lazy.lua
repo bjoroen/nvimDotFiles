@@ -16,6 +16,7 @@ vim.g.mapleader = " "
 local plugins = {
 	--TODO: Group plugins better
 	"nvim-lua/plenary.nvim",
+  
 	-- {
 	-- 	dir = "~/github/nvim-stats", -- Your path
 	-- 	name = "nvim-stats",
