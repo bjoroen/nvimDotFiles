@@ -16,13 +16,14 @@ vim.g.mapleader = " "
 local plugins = {
 	--TODO: Group plugins better
 	"nvim-lua/plenary.nvim",
-	{
-		dir = "~/dev/nvim-stats", -- Your path
-		name = "nvim-stats",
-		config = function()
-			require("nvim-stats").setup()
-		end,
-	},
+  
+	-- {
+	-- 	dir = "~/github/nvim-stats", -- Your path
+	-- 	name = "nvim-stats",
+	-- 	config = function()
+	-- 		require("nvim-stats").setup()
+	-- 	end,
+	-- },
 
 	{
 		"AlexvZyl/nordic.nvim",
@@ -32,8 +33,6 @@ local plugins = {
 			require("nordic").load()
 		end,
 	},
-
-	"wakatime/vim-wakatime",
 
 	{ "catppuccin/nvim", name = "catppuccin" }, -- colorscheme
 
