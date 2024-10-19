@@ -47,6 +47,11 @@ k.set("n", "<leader>e", ":Rexplore<CR>") -- toggle file explorer
 ----------------------
 -- Plugin Keybind
 ----------------------
+-- Gophher Keybinds
+k.set("n", "<leader>tf", ":GoTestFile<CR>")
+k.set("n", "<leader>er", ":GoIfErr<CR>")
+k.set("n", "<leader>at", ":GoAddTag json<CR>")
+
 -- vim-maximizer
 k.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
 

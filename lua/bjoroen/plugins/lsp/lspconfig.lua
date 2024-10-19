@@ -16,12 +16,6 @@ if not cmp_nvim_lsp_status then
 	return
 end
 
--- import typescript plugin safely
-local typescript_setup, typescript = pcall(require, "typescript")
-if not typescript_setup then
-	return
-end
-
 local rust_tool_setup, rt = pcall(require, "rust-tools")
 if not rust_tool_setup then
 	return
@@ -66,12 +60,12 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts) -- show documentation for what is under cursor
 	keymap.set("n", "<leader>lsh", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 
-	-- typescript specific keymaps (e.g. rename file and update imports)
-	if client.name == "tsserver" then
-		keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
-		keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports
-		keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables
-	end
+	-- -- typescript specific keymaps (e.g. rename file and update imports)
+	-- if client.name == "tsserver" then
+	-- 	keymap.set("n", "<leader>rf", ":TypescriptRenameFile<CR>") -- rename file and update imports
+	-- 	keymap.set("n", "<leader>oi", ":TypescriptOrganizeImports<CR>") -- organize imports
+	-- 	keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>") -- remove unused variables
+	-- end
 
 	if client.name == "rust_analzyer" then
 		keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
@@ -107,7 +101,7 @@ vim.diagnostic.config({
 	},
 	severity_sort = true,
 	float = {
-		source = "always", -- Or "if_many"
+		source = true, -- Or "if_many"
 	},
 })
 
@@ -186,14 +180,6 @@ lspconfig.clangd.setup({
 lspconfig["html"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
-})
-
--- configure typescript server with plugin
-typescript.setup({
-	server = {
-		capabilities = capabilities,
-		on_attach = on_attach,
-	},
 })
 
 -- configure css server

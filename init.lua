@@ -17,5 +17,4 @@ require("bjoroen.plugins.colorizer")
 require("bjoroen.plugins.indent-blankline")
 
 -- My plugins
--- require("bjoroen.plugins.nvim-pdf")
 require("bjoroen.plugins.statusline")

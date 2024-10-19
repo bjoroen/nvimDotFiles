@@ -16,7 +16,7 @@ vim.g.mapleader = " "
 local plugins = {
 	--TODO: Group plugins better
 	"nvim-lua/plenary.nvim",
-  
+
 	-- {
 	-- 	dir = "~/github/nvim-stats", -- Your path
 	-- 	name = "nvim-stats",
@@ -32,6 +32,21 @@ local plugins = {
 		config = function()
 			require("nordic").load()
 		end,
+	},
+
+	{
+		"ray-x/go.nvim",
+		dependencies = { -- optional packages
+			"ray-x/guihua.lua",
+			"neovim/nvim-lspconfig",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		config = function()
+			require("go").setup()
+		end,
+		event = { "CmdlineEnter" },
+		ft = { "go", "gomod" },
+		build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
 	},
 
 	{ "catppuccin/nvim", name = "catppuccin" }, -- colorscheme
@@ -77,8 +92,6 @@ local plugins = {
 	"neovim/nvim-lspconfig", -- easily configure language servers
 
 	"hrsh7th/cmp-nvim-lsp", -- for autocompletion
-
-	"jose-elias-alvarez/typescript.nvim", -- additional functionality for typescript server (e.g. rename file & update imports)
 
 	"onsails/lspkind.nvim", -- vs-code like icons for autocompletion
 
